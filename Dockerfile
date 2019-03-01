@@ -9,7 +9,7 @@ RUN VERSION=$(cat /tmp/VERSION) && \
     apk add --no-cache git build-base openssl && \
     apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing leveldb-dev && \
     pip install aiohttp pylru plyvel && \
-    git clone -b $VERSION https://github.com/ZclassicDev/electrumx.git && \
+    git clone -b $VERSION https://github.com/ZclassicCommunity/electrumx.git && \
     cd electrumx && \
     python setup.py install && \
     apk del git build-base && \
@@ -21,8 +21,8 @@ ENV ALLOW_ROOT 1
 ENV DB_DIRECTORY /data
 ENV TCP_PORT=50001
 ENV SSL_PORT=50002
-ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
-ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
+ENV SSL_CERTFILE ${DB_DIRECTORY}/server.crt
+ENV SSL_KEYFILE ${DB_DIRECTORY}/server.key
 ENV HOST ""
 WORKDIR /data
 
